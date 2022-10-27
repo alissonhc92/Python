@@ -1,0 +1,41 @@
+from time import sleep
+import random
+
+print('''Suas opções:
+[1] {}PEDRA{}
+[2] {}PAPEL{}
+[3] {}TESOURA{}
+'''.format('\033[33m','\033[m','\033[34m','\033[m','\033[35m','\033[m'))
+jog = int(input('Qual sua jogada? '))
+print('{}JO{}'.format('\033[32m','\033[m'))
+sleep(1)
+print('{}KEN{}'.format('\033[31m','\033[m'))
+sleep(1)
+print('{}PO!!!{}'.format('\033[036m','\033[m'))
+list = [1, 2, 3]
+pc = random.choice(list)
+
+if pc == jog:
+  res = '{}EMPATE!{}'.format('\033[033m','\033[m')
+elif (jog == 1 and pc == 3) or (jog == 2 and pc == 1) or (jog == 3 and pc == 2):
+  res = '{}JOGADOR VENCE!!!{}'.format('\033[32m', '\033[m')
+elif (jog == 1 and pc == 2) or (jog == 2 and pc == 3) or (jog == 3 and pc == 1):
+  res = '{}COMPUTADOR VENCEU!!!{}'.format('\033[31m','\033[m')
+  
+print('-='*10)
+if pc == 1:
+  jokepc = '{}PEDRA{}'.format('\033[33m','\033[m')
+elif pc == 2:
+  jokepc = '{}PAPEL{}'.format('\033[34m','\033[m')
+elif pc == 3:
+  jokepc = '{}TESOURA{}'.format('\033[35m','\033[m')
+print('Computador jogou {}'.format(jokepc))
+if jog == 1:
+  jokejg = '{}PEDRA{}'.format('\033[33m','\033[m')
+elif jog == 2:
+  jokejg = '{}PAPEL{}'.format('\033[34m','\033[m')
+elif jog == 3:
+  jokejg = '{}TESOURA{}'.format('\033[35m','\033[m')
+print('Jogador jogou {}'.format(jokejg))
+print('-='*10)
+print(res)
